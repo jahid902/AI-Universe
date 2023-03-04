@@ -73,7 +73,7 @@ const containerDiv = document.getElementById("modal-body");
   
       <div class="col-md-4 position-relative mt-3">
       <img src="${data.image_link[0]}" class="img-fluid rounded-start" alt="...">
-      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score > 0 ? data.accuracy.score : ""} % accuracy </button>
+      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score  ? Math.round(data.accuracy.score*100) : ""} % accuracy </button>
       <br>
       <h4 class="mt-2 px-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : data.input_output_examples[1].input}</h4>
       <p class="mt-2 px-2">${data.input_output_examples[0].output ? data.input_output_examples[0].output : data.input_output_examples[1].output }</p>
@@ -135,7 +135,18 @@ document.getElementById("sort-by").addEventListener('click', function(){
     })
 })
 
+const sorted = (datas) =>{
+  
+  datas.map(data => {
+    const dates = data.published_in;
+    console.log(data)
+    // const filteredDate = dates.filter(date => date >= 6/1/2009);         
+    // console.log(filteredDate);   
 
+  })
+
+  
+}
 
 
 
