@@ -3,6 +3,7 @@ const getAllData = () => {
     fetch(URL)
     .then(res => res.json())
     .then(data => showCardData(data.data.tools.slice(0, 6)));
+    spinnerLoad(true);
 }
 
 const showCardData = (data) => {
@@ -39,6 +40,7 @@ const showCardData = (data) => {
                     
       `
       container.appendChild(div);
+      spinnerLoad(false);
 
     });
 
@@ -69,11 +71,11 @@ const singleCardDetail = (data) =>{
    const containerDiv = document.getElementById("modal-body");
    containerDiv.innerHTML =`
    <div class="card mb-3" style="max-width: 100%;">
-  <div class="d-flex flex-row-reverse g-0">
-
+  <div class="d-flex flex-row-reverse g-0 p-3">
+  
     <div class="col-md-4 position-relative mt-3">
       <img src="${data.image_link[0]}" class="img-fluid rounded-start" alt="...">
-      <button class="p-1 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score ? data.accuracy.score : " "} % accuracy </button>
+      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score ? data.accuracy.score : ""} % accuracy </button>
       <br>
       <h4 class="mt-2 px-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : data.input_output_examples[1].input}</h4>
       <p class="mt-2 px-2">${data.input_output_examples[0].output ? data.input_output_examples[0].output : data.input_output_examples[1].output }</p>
@@ -113,8 +115,17 @@ const singleCardDetail = (data) =>{
      `
 }
 
+function spinnerLoad(isLoading){
+
+  const loader = document.getElementById("spinner");
+  if(isLoading){
+    loader.classList.remove("d-none");
+  }
+  else{
+    loader.classList.add("d-none");
+  }
+
+}
 
 
 
-
-// getAllData();
