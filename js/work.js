@@ -56,14 +56,14 @@ const showAll = () => {
     })
 
 }
-
+//  single card data fetch
 const singleCardCatch = (id) =>{
     fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
     .then(res => res.json())
     .then(data => singleCardDetail(data.data))
     
 }
-
+// modal function 
 const singleCardDetail = (data) =>{
 
    const containerDiv = document.getElementById("modal-body");
@@ -112,7 +112,7 @@ const singleCardDetail = (data) =>{
 </div>
      `
 }
-
+// spinner function
 function spinnerLoad(isLoading){
 
   const loader = document.getElementById("spinner");
