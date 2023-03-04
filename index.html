@@ -22,7 +22,7 @@
     <header>
         <h3 class="text-center my-3">AI Universe Hub</h3>
         <div class="d-flex justify-content-center my-4">
-            <button class="btn btn-danger">Sort by date</button>
+            <button onclick="sortBtn()" class="btn btn-danger">Sort by date</button>
         </div>
     </header>
     <!-- end of header -->
@@ -36,6 +36,7 @@
         </div>
       </section>
       <!-- spinner end -->
+      <!-- card container start -->
         <section class="my-5 py-4 bg-light container">
             <div id="card-container" class="row row-cols-1 row-cols-md-3 g-4">                
             </div>               
@@ -43,6 +44,7 @@
         <div class="text-center my-2">
             <button id="see-more-btn" onclick="showAll()" class="btn btn-danger px-4 py-2">See More</button>
         </div>
+        <!-- card container end -->
         <!-- modal start -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" >

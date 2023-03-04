@@ -1,3 +1,4 @@
+// data fetch function
 const getAllData = () => {
     const URL = `https://openapi.programming-hero.com/api/ai/tools`;
     fetch(URL)
@@ -5,7 +6,7 @@ const getAllData = () => {
     .then(data => showCardData(data.data.tools.slice(0, 6)));
     spinnerLoad(true);
 }
-
+// card show function
 const showCardData = (data) => {
     const container = document.getElementById("card-container")
     container.innerHTML = "";
@@ -45,8 +46,7 @@ const showCardData = (data) => {
     });
 
 }
-
-
+// see more data fetch
 const showAll = () => {
     fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then(res => res.json())
@@ -60,9 +60,7 @@ const showAll = () => {
 const singleCardCatch = (id) =>{
     fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
     .then(res => res.json())
-    .then(data => {singleCardDetail(data.data)
-    console.log(data.data);
-    })
+    .then(data => singleCardDetail(data.data))
     
 }
 
@@ -75,7 +73,7 @@ const singleCardDetail = (data) =>{
   
     <div class="col-md-4 position-relative mt-3">
       <img src="${data.image_link[0]}" class="img-fluid rounded-start" alt="...">
-      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score ? data.accuracy.score : ""} % accuracy </button>
+      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score > 0 ? data.accuracy.score : ""} % accuracy </button>
       <br>
       <h4 class="mt-2 px-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : data.input_output_examples[1].input}</h4>
       <p class="mt-2 px-2">${data.input_output_examples[0].output ? data.input_output_examples[0].output : data.input_output_examples[1].output }</p>
