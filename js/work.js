@@ -68,22 +68,22 @@ const singleCardDetail = (data) =>{
 
 const containerDiv = document.getElementById("modal-body");
       containerDiv.innerHTML =`
-      <div class="card mb-3" style="max-width: 100%;">
-      <div class="d-flex flex-row-reverse g-0 p-3">
+      <div class="card mb-3" w-100">
+      <div class="d-flex flex-column flex-md-row-reverse g-0 p-3">
   
-      <div class="col-md-4 position-relative mt-3">
+      <div class="col-12 col-md-4 position-relative mt-3">
       <img src="${data.image_link[0]}" class="img-fluid rounded-start" alt="...">
-      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score  ? Math.round(data.accuracy.score*100) : ''} % accuracy </button>
+      <button id="percentage-btn" class="p-1 mt-2 btn btn-danger bg-opacity-25 position-absolute top-0 end-0">${data.accuracy.score  ? Math.round(data.accuracy.score*100) : "" } % accuracy </button>
       <br>
       <h4 class="mt-2 px-2">${data.input_output_examples[0].input ? data.input_output_examples[0].input : data.input_output_examples[1].input}</h4>
       <p class="mt-2 px-2">${data.input_output_examples[0].output ? data.input_output_examples[0].output : data.input_output_examples[1].output }</p>
       </div>
 
-      <div class="col-md-8">
+      <div class="col-12 col-md-8">
       <div class="card-body">
       <div class="bg-danger bg-opacity-10 p-3">
       <h4 class="card-title">${data.description}</h4>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-center justify-content-md-between">
       <button type="button" class="btn btn-light text-success">${data.pricing[0].price ? data.pricing[0].price : "free to use"} <br> ${data.pricing[0].plan ? data.pricing[0].plan : "Always free"}</button>
       <button type="button" class="btn btn-light text-warning-emphasis">${data.pricing[1].price ? data.pricing[1].price : "free to use"} <br> ${data.pricing[1].plan ? data.pricing[1].plan : "Always free"}</button>
       <button type="button" class="btn btn-light text-danger-emphasis">${data.pricing[2].price ? data.pricing[2].price : "free to use"} <br> ${data.pricing[2].plan ? data.pricing[2].plan : "Always free"}</button>    
